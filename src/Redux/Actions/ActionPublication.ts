@@ -5,13 +5,15 @@ import { getAuth } from "firebase/auth";
 
 // ----------------- CREATE ------------------ //
 
+
+// ! FALTA ENVIARLE EL OBJETO COMPLETO EJEMPLO EL OBJETO DE LIKES VACIO ETC
 export const actionCreatePublicationAsync = (payload: object) => {
     return async (dispatch: any) => {
         try {
             const publicationDocRef = doc(dataBase, "Publications", crypto.randomUUID());
             const newPublication = {
                 ...payload,
-                id: publicationDocRef.id,
+                Id: publicationDocRef.id,
             };
             await setDoc(publicationDocRef, newPublication);
             dispatch(actionCreatePublicationSyn(newPublication));

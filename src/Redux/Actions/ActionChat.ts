@@ -12,7 +12,7 @@ export const actionFindChatAsync = () => {
                 const chatQuery = query(collection(dataBase, "Chat"), where("UIDS", "array-contains", uid));
                 const chatSnapshot = await getDocs(chatQuery);
                 if (chatSnapshot) {
-                    const chats = chatSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                    const chats = chatSnapshot.docs.map((doc) => ({ Id: doc.id, ...doc.data() }));
                     dispatch(actionFindChatsync());
                     return chats;
                 } else {
