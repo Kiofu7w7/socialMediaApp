@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const Perfil = () => {
-  const [imagenPerfil, setImagenPerfil] = useState(0); // Estado para la imagen, en useState poner enlace de imagen basica
+const Profile = () => {
+  const [imagenPerfil, setImagenPerfil] = useState('imagen'); // Estado para la imagen, en useState poner enlace de imagen basica
   const [numeroPublicaciones, setNumeroPublicaciones] = useState(0); // Estado para el número de publicaciones
   const [numeroSeguidos, setNumeroSeguidos] = useState(0); // Estado para el número de seguidos
 
@@ -40,4 +40,4 @@ const Perfil = () => {
   );
 };
 
-export default Perfil;
+export default Profile;

@@ -18,7 +18,7 @@ const LandingPage = () => {
 
       <button onClick={() => navigate("/newcomer")}>NewComer</button>
       <button onClick={() => navigate("/search")}>Search</button>
-      <button onClick={() => navigate("../../Components/Perfil.jsx")}>Perfil</button>
+      <button onClick={() => navigate("../../Components/Profile")}>Perfil</button>
       <button onClick={()=> logOut()}>Log OUT</button>
 
     </div>
