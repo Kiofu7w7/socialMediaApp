@@ -2,7 +2,6 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PublicRouter from "./PublicRoutes";
-import Home from "../Containers/Public/Home";
 import Login from "../Containers/Public/Login";
 import Register from "../Containers/Public/Register";
 import PrivateRouter from "./PrivateRoutes";

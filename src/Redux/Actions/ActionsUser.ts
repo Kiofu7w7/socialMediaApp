@@ -71,10 +71,18 @@ export const actionListUserSyn = (payload: any) => {
 
 // ------------------Crear--------------------- //
 export const actionAddUserAsyn = (payload: object) => {
+    const user = getAuth()
+    const UID = user.currentUser?.uid;
+    const modifiedPayload = { ...payload,
+        UID: UID,
+        Followers: [],
+        Follows: [],
+        Likes: [],
+        Saved: [] };
     return async (dispatch: any) => {
-        await addDoc(collection(dataBase, "Users"), payload)
+        await addDoc(collection(dataBase, "Users"), modifiedPayload)
             .then((resp) => {
-                dispatch(actionAddUserSyn(payload));
+                dispatch(actionAddUserSyn(modifiedPayload));
                 dispatch(actionListUsersAsyn());
             })
             .catch((e) => {
