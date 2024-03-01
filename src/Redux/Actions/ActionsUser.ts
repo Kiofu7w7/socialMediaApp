@@ -104,7 +104,7 @@ export const actionEditUserAsyn = (payload: any) => {
     return async (dispatch: any) => {
         let uid = "";
         const collectionP = collection(dataBase, "Users");
-        const q = query(collectionP, where("UID", "==", payload.id));
+        const q = query(collectionP, where("UID", "==", payload.UID));
         const datosQ = await getDocs(q);
         datosQ.forEach((docu) => {
             uid = docu.id;
