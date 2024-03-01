@@ -30,18 +30,18 @@ export const actionListUsersSyn = (payload: any) => {
 // ------------------Listar usuario personal--------------------- //
 export const actionListUserAsyn = () => {
     const auth = getAuth();
-    const userId = auth.currentUser ? auth.currentUser.uid : null; 
+    const userId = auth.currentUser ? auth.currentUser.uid : null;
     return async (dispatch: any) => {
         if (userId) {
             try {
                 const collectionP = collection(dataBase, "Users");
-                const q = query(collectionP, where("UID", "==", userId)); 
+                const q = query(collectionP, where("UID", "==", userId));
                 const datosQ = await getDocs(q);
                 if (datosQ.empty) {
                     console.warn("No encontrado");
                     return;
                 }
-                const usuarios:object[] = [];
+                const usuarios: object[] = [];
                 datosQ.forEach((docu) => {
                     usuarios.push({
                         ...docu.data(),
@@ -73,12 +73,14 @@ export const actionListUserSyn = (payload: any) => {
 export const actionAddUserAsyn = (payload: object) => {
     const user = getAuth()
     const UID = user.currentUser?.uid;
-    const modifiedPayload = { ...payload,
+    const modifiedPayload = {
+        ...payload,
         UID: UID,
         Followers: [],
         Follows: [],
         Likes: [],
-        Saved: [] };
+        Saved: []
+    };
     return async (dispatch: any) => {
         await addDoc(collection(dataBase, "Users"), modifiedPayload)
             .then((resp) => {
@@ -394,3 +396,32 @@ const actionLikeStorieSyn = (payload: any) => {
         payload,
     };
 }
+
+// ------------- search -------------- //
+
+export const actionSearchProductAsyn = (payload: string) => {
+    return async (dispatch: any) => {
+        const productosCollection = collection(dataBase, "Users");
+        const q = query(
+            productosCollection,
+            where("user_name", ">=", payload),
+            where("user_name", "<=", payload + '\uf8ff')
+        );
+
+        const dataQ = await getDocs(q);
+        console.log(dataQ);
+        const prod: object[] = [];
+        dataQ.forEach((docu) => {
+            prod.push(docu.data());
+        });
+        dispatch(actionSearchProductSyn(prod));
+        return prod;
+    };
+};
+
+export const actionSearchProductSyn = (payload: object) => {
+    return {
+        type: typesUsers.search,
+        payload,
+    };
+};

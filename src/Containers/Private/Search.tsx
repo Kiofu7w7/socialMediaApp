@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { actionListPublicationsAsync } from '../../Redux/Actions/ActionPublication'
+import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
 
     const dispatch: any = useDispatch()
     
     const [objetos, setObjetos] = useState([])
+    const navegar = useNavigate()
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -25,7 +27,7 @@ const Search = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        console.log('Buscando:', searchInput)
+        navegar(`/search/${searchInput}`)
     }
 
     const handleChange = (e: any) => {

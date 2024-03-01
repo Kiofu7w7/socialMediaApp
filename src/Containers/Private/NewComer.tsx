@@ -21,7 +21,6 @@ const NewComer = () => {
     cellPhone: string,
     description: string,
     edad: number,
-    url_photo: string,
     user_name: string
   }
 
@@ -56,12 +55,6 @@ const NewComer = () => {
         {imageUrl && (
           <img src={imageUrl} alt="preview" style={{ width: '100px', height: '100px' }} />
         )}
-        {touched.url_photo &&
-          errors.url_photo && (
-            <div>
-              {errors.url_photo as string}
-            </div>
-          )}
 
         <p>Ingresa tu nombre de usuario</p>
         <Field type="text" name="user_name" placeholder="Kofidelay" />
@@ -91,7 +84,6 @@ const NewComer = () => {
     initialCellPhone?: string;
     initialDescription?: string;
     initialEdad?: number;
-    initialUrlPhoto?: any;
     initialUserName?: string;
     message: string;
   }
@@ -102,12 +94,15 @@ const NewComer = () => {
       cellPhone: props.initialCellPhone || '',
       description: props.initialDescription || '',
       edad: props.initialEdad || 0,
-      url_photo: props.initialUrlPhoto || '',
       user_name: props.initialUserName || '',
     }),
     validationSchema: validationSchema,
     handleSubmit: values => {
-      dispatch(actionAddUserAsyn(values));
+      const objetos = {
+        ...values,
+        Url_photo: imageUrl
+      }
+      dispatch(actionAddUserAsyn(objetos));
       navigate('/')
     },
   })(InnerForm);

@@ -18,6 +18,7 @@ const LandingPage = () => {
 
       <button onClick={() => navigate("/newcomer")}>NewComer</button>
       <button onClick={() => navigate("/search")}>Search</button>
+      <button onClick={() => navigate("/chats")}>Chats</button>
       <button onClick={()=> logOut()}>Log OUT</button>
 
     </div>

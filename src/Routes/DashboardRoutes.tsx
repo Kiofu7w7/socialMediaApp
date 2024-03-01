@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux'
 import { getAuth } from 'firebase/auth'
 import { actionListUserAsyn } from '../Redux/Actions/ActionsUser'
 import Search from '../Containers/Private/Search'
+import SearchResults from '../Containers/Private/SearchResults'
+import Chats from '../Containers/Private/Chats'
 
 type UserState = boolean | null
 
@@ -40,6 +42,8 @@ const DashBoard = () => {
                 <Route path='/newcomer' element={<NewComer />}></Route>
                 <Route path='/' element={<PrivateCheckRouter isAutentication={user}><LandingPage /></PrivateCheckRouter>} />
                 <Route path='/search' element={<PrivateCheckRouter isAutentication={user}><Search /></PrivateCheckRouter>} />
+                <Route path='/search/:searchTerm' element={<PrivateCheckRouter isAutentication={user}><SearchResults /></PrivateCheckRouter>} />
+                <Route path='/search' element={<PrivateCheckRouter isAutentication={user}><Chats /></PrivateCheckRouter>} />
                 <Route path='/*' element={<PrivateCheckRouter isAutentication={user}><LandingPage /></PrivateCheckRouter>} />  
             </Routes>
         </>
