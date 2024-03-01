@@ -11,6 +11,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const LandingPage = () => {
@@ -27,16 +28,13 @@ const LandingPage = () => {
     <div>
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="/LandingPAge">
+          <Navbar.Brand onClick={() => navigate("/LandingPAge")}>
             <img
               src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709270601/socialmedia/u8a9wbdepycp3r5wmrao.svg"
               alt="findy"
             />
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={() => navigate("/newcomer")}>NewComer</Nav.Link>
-            <Nav.Link onClick={() => navigate("/search")}>Search</Nav.Link>
-            <Nav.Link onClick={() => navigate("/profile")}>Perfil</Nav.Link>
             <Nav.Link onClick={() => logOut()}>Log OUT</Nav.Link>
           </Nav>
         </Container>
@@ -159,21 +157,7 @@ const LandingPage = () => {
           </Card.Body>
         </Card>
       </nav>
-      <footer style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <Navbar bg="primary" data-bs-theme="dark" >
-          <Container>
-            <Nav className="me-auto">
-              <Nav.Link href="#home"><Image src=""/>Home</Nav.Link>
-              <Nav.Link onClick={() => navigate("/search")}><Image src=""/>Features</Nav.Link>
-            </Nav>
-            <Navbar.Brand href="#new"><Image src=""/>+</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#pricing"><Image src=""/>Pricing</Nav.Link>
-              <Nav.Link ><Image src=""/>Perfil</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </footer>
+      <Footer />
     </div>
   );
 };
