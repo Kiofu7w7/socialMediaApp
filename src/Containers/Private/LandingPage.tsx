@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { getAuth, signOut } from "firebase/auth";
 import {
   Button,
@@ -21,6 +22,11 @@ const LandingPage = () => {
       .then(() => {})
       .catch((error) => {});
   };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -53,7 +59,7 @@ const LandingPage = () => {
                 alignItems: "center",
                 flexDirection: "column",
                 gap: 10,
-                position: "relative",
+                position: "relative"
               }}
             >
               <Image
@@ -63,7 +69,7 @@ const LandingPage = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  top: 27,
+                  top: 27
                 }}
                 src="https://res.cloudinary.com/dtmapxnao/image/upload/v1709072583/workshop/Vector_4_dyqict.png"
               />
@@ -81,7 +87,7 @@ const LandingPage = () => {
                 display: "flex",
                 alignItems: "center",
                 flexDirection: "column",
-                gap: 10,
+                gap: 10
               }}
             >
               {/* mapeo de seguidos */}
@@ -95,19 +101,30 @@ const LandingPage = () => {
           </Row>
         </Container>
       </label>
-      <nav>
+      <nav onClick={handleShow}>
         {/* mapeo de publicacion */}
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "20rem" }} show={show} onHide={handleClose} closeButton>
           <section>
             <Image style={{width: 30, height: 30}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" roundedCircle/>
             <Card.Title>Card Title</Card.Title>
           </section>
           <Card.Img variant="top" src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" />
-          <section>
-            <Button variant="primary">like</Button>
-            <Button variant="primary">comment</Button>
-            <Button variant="primary">share</Button>
-            <Button variant="primary">save</Button>
+          <section style={{display: "flex", flexDirection: "row", gap: 5, textAlign: "center"}}>
+            <nav>
+              <Button variant="primary">like</Button>
+              <p>1K</p>
+            </nav>
+            <nav>
+              <Button variant="primary">comment</Button>
+              <p>200</p>
+            </nav>
+            <nav>
+              <Button variant="primary">share</Button>
+              <p>85</p>
+            </nav>
+            <nav>
+              <Button variant="primary">save</Button>
+            </nav>
           </section>
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
