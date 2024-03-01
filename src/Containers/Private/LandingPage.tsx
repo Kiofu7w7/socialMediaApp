@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import {
   Button,
@@ -23,11 +23,6 @@ const LandingPage = () => {
       .catch((error) => {});
   };
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   return (
     <div>
       <Navbar bg="light" data-bs-theme="light">
@@ -41,14 +36,18 @@ const LandingPage = () => {
           <Nav className="me-auto">
             <Nav.Link onClick={() => navigate("/newcomer")}>NewComer</Nav.Link>
             <Nav.Link onClick={() => navigate("/search")}>Search</Nav.Link>
-            <Nav.Link onClick={() => navigate("../../Components/Profile")}>
-              Perfil
-            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/profile")}>Perfil</Nav.Link>
             <Nav.Link onClick={() => logOut()}>Log OUT</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-      <label>
+      <label
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Container>
           <Row style={{ gap: 20 }}>
             <Col
@@ -59,7 +58,7 @@ const LandingPage = () => {
                 alignItems: "center",
                 flexDirection: "column",
                 gap: 10,
-                position: "relative"
+                position: "relative",
               }}
             >
               <Image
@@ -69,7 +68,7 @@ const LandingPage = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  top: 27
+                  top: 27,
                 }}
                 src="https://res.cloudinary.com/dtmapxnao/image/upload/v1709072583/workshop/Vector_4_dyqict.png"
               />
@@ -87,12 +86,12 @@ const LandingPage = () => {
                 display: "flex",
                 alignItems: "center",
                 flexDirection: "column",
-                gap: 10
+                gap: 10,
               }}
             >
               {/* mapeo de seguidos */}
               <Image
-                style={{  }}
+                style={{ width: 71, height: 80 }}
                 src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709272334/socialmedia/rmx0u3z9mbuaz6gyi9ek.svg"
                 roundedCircle
               />
@@ -101,39 +100,80 @@ const LandingPage = () => {
           </Row>
         </Container>
       </label>
-      <nav onClick={handleShow}>
+      <nav
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {/* mapeo de publicacion */}
-        <Card style={{ width: "20rem" }} show={show} onHide={handleClose} closeButton>
+        <Card style={{ width: "20rem" }}>
           <section>
-            <Image style={{width: 30, height: 30}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" roundedCircle/>
+            <Image
+              style={{ width: 30, height: 30 }}
+              src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg"
+              roundedCircle
+            />
             <Card.Title>Card Title</Card.Title>
           </section>
-          <Card.Img variant="top" src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" />
-          <section style={{display: "flex", flexDirection: "row", gap: 5, textAlign: "center"}}>
+          <Card.Img
+            variant="top"
+            src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg"
+          />
+          <section
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 5,
+              textAlign: "center",
+            }}
+          >
             <nav>
-              <Button variant="primary">like</Button>
+              <Button variant="primary">
+                <Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709310481/socialmedia/chfnz7xctkpwqnd4g1zw.png" />
+              </Button>
               <p>1K</p>
             </nav>
             <nav>
-              <Button variant="primary">comment</Button>
+              <Button variant="primary">
+                <Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709310481/socialmedia/kjmec6ruzcuydbvr9ibr.png" />
+              </Button>
               <p>200</p>
             </nav>
             <nav>
-              <Button variant="primary">share</Button>
+              <Button variant="primary">
+                <Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709310480/socialmedia/hlvp6ahnwl6glne0ig1v.png" />
+              </Button>
               <p>85</p>
             </nav>
             <nav>
-              <Button variant="primary">save</Button>
+              <Button variant="primary">
+                <Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709311243/socialmedia/xhsj6hfjir49yrhrtmzj.png" />
+              </Button>
             </nav>
           </section>
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Darkrai, el espectro carmesi.
-            </Card.Text>
+            <Card.Text>Darkrai, el espectro carmesi.</Card.Text>
           </Card.Body>
         </Card>
       </nav>
+      <footer style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <Navbar bg="primary" data-bs-theme="dark" >
+          <Container>
+            <Nav className="me-auto">
+              <Nav.Link href="#home"><Image src=""/>Home</Nav.Link>
+              <Nav.Link onClick={() => navigate("/search")}><Image src=""/>Features</Nav.Link>
+            </Nav>
+            <Navbar.Brand href="#new"><Image src=""/>+</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="#pricing"><Image src=""/>Pricing</Nav.Link>
+              <Nav.Link ><Image src=""/>Perfil</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </footer>
     </div>
   );
 };
