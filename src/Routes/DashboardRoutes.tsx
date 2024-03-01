@@ -43,7 +43,7 @@ const DashBoard = () => {
                 <Route path='/' element={<PrivateCheckRouter isAutentication={user}><LandingPage /></PrivateCheckRouter>} />
                 <Route path='/search' element={<PrivateCheckRouter isAutentication={user}><Search /></PrivateCheckRouter>} />
                 <Route path='/search/:searchTerm' element={<PrivateCheckRouter isAutentication={user}><SearchResults /></PrivateCheckRouter>} />
-                <Route path='/search' element={<PrivateCheckRouter isAutentication={user}><Chats /></PrivateCheckRouter>} />
+                <Route path='/chats' element={<PrivateCheckRouter isAutentication={user}><Chats /></PrivateCheckRouter>} />
                 <Route path='/*' element={<PrivateCheckRouter isAutentication={user}><LandingPage /></PrivateCheckRouter>} />  
             </Routes>
         </>

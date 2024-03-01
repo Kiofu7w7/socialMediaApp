@@ -9,10 +9,19 @@ export const actionFindChatAsync = () => {
             const auth = getAuth();
             if (auth && auth.currentUser) {
                 const uid = auth.currentUser.uid;
-                const chatQuery = query(collection(dataBase, "Chat"), where("UIDS", "array-contains", uid));
+                const chatQuery = query(
+                    collection(dataBase, "Chat"),
+                    where("UID1", "==", uid)
+                );
+                const chatQuery2 = query(
+                    collection(dataBase, "Chat"),
+                    where("UID2", "==", uid)
+                );
                 const chatSnapshot = await getDocs(chatQuery);
+                const chatSnapshot2 = await getDocs(chatQuery2);
                 if (chatSnapshot) {
-                    const chats = chatSnapshot.docs.map((doc) => ({ Id: doc.id, ...doc.data() }));
+                    let chats = chatSnapshot.docs.map((doc) => ({ Id: doc.id, ...doc.data() }));
+                    chats = chats.concat(chatSnapshot2.docs.map((doc) => ({ Id: doc.id, ...doc.data() })));
                     dispatch(actionFindChatsync());
                     return chats;
                 } else {
