@@ -27,16 +27,13 @@ const LandingPage = () => {
     <div>
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="/LandingPAge">
+          <Navbar.Brand onClick={() => navigate("/LandingPAge")}>
             <img
               src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709270601/socialmedia/u8a9wbdepycp3r5wmrao.svg"
               alt="findy"
             />
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={() => navigate("/newcomer")}>NewComer</Nav.Link>
-            <Nav.Link onClick={() => navigate("/search")}>Search</Nav.Link>
-            <Nav.Link onClick={() => navigate("/profile")}>Perfil</Nav.Link>
             <Nav.Link onClick={() => logOut()}>Log OUT</Nav.Link>
           </Nav>
         </Container>
@@ -163,13 +160,13 @@ const LandingPage = () => {
         <Navbar bg="primary" data-bs-theme="dark" >
           <Container>
             <Nav className="me-auto">
-              <Nav.Link href="#home"><Image src=""/>Home</Nav.Link>
-              <Nav.Link onClick={() => navigate("/search")}><Image src=""/>Features</Nav.Link>
+              <Nav.Link onClick={() => navigate("/landingpage")}><Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709311997/socialmedia/s0o2qrxqpkklwxbmtgaz.png"/></Nav.Link>
+              <Nav.Link onClick={() => navigate("/search")}><Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709311997/socialmedia/aljtpnt2wgm5oqq0dxru.png"/></Nav.Link>
             </Nav>
-            <Navbar.Brand href="#new"><Image src=""/>+</Navbar.Brand>
+            <Navbar.Brand href="#new"><Image src="https://res.cloudinary.com/dtmapxnao/image/upload/v1709072583/workshop/Vector_4_dyqict.png"/></Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#pricing"><Image src=""/>Pricing</Nav.Link>
-              <Nav.Link ><Image src=""/>Perfil</Nav.Link>
+              <Nav.Link onClick={() => navigate("/newcomer")}><Image style={{ width: 34, height: 34}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709315673/socialmedia/nktnddnkc2ierssctj78.png"/></Nav.Link>
+              <Nav.Link onClick={() => navigate("/profile")}><Image style={{ width: 31, height: 40}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" roundedCircle/></Nav.Link>
             </Nav>
           </Container>
         </Navbar>
