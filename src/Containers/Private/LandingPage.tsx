@@ -1,5 +1,14 @@
 import { getAuth, signOut } from "firebase/auth";
-import { Col, Container, Image, Nav, Navbar, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Image,
+  Nav,
+  Navbar,
+  Row,
+} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -35,18 +44,79 @@ const LandingPage = () => {
       </Navbar>
       <label>
         <Container>
-          <Row>
-            <Col xs={6} md={4}>
-              <Image style={{width: 71, height: 80}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" roundedCircle />
+          <Row style={{ gap: 20 }}>
+            <Col
+              xs={7}
+              md={5}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                gap: 10,
+                position: "relative",
+              }}
+            >
+              <Image
+                style={{
+                  position: "absolute",
+                  zIndex: 3,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  top: 27,
+                }}
+                src="https://res.cloudinary.com/dtmapxnao/image/upload/v1709072583/workshop/Vector_4_dyqict.png"
+              />
+              <Image
+                style={{ width: 71, height: 80, filter: "brightness(0.3)" }}
+                src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg"
+                roundedCircle
+              />
+              <p style={{ fontSize: 10, textAlign: "center" }}> Tu historia </p>
             </Col>
-          </Row>
-          <Row>
-            <Col xs={6} md={4}>
-              <Image style={{width: 71, height: 80}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709272334/socialmedia/rmx0u3z9mbuaz6gyi9ek.svg" roundedCircle />
+            <Col
+              xs={7}
+              md={5}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                gap: 10,
+              }}
+            >
+              {/* mapeo de seguidos */}
+              <Image
+                style={{  }}
+                src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709272334/socialmedia/rmx0u3z9mbuaz6gyi9ek.svg"
+                roundedCircle
+              />
+              <p style={{ fontSize: 10, textAlign: "center" }}> Seguido </p>
             </Col>
           </Row>
         </Container>
       </label>
+      <nav>
+        {/* mapeo de publicacion */}
+        <Card style={{ width: "18rem" }}>
+          <section>
+            <Image style={{width: 30, height: 30}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" roundedCircle/>
+            <Card.Title>Card Title</Card.Title>
+          </section>
+          <Card.Img variant="top" src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" />
+          <section>
+            <Button variant="primary">like</Button>
+            <Button variant="primary">comment</Button>
+            <Button variant="primary">share</Button>
+            <Button variant="primary">save</Button>
+          </section>
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Text>
+              Darkrai, el espectro carmesi.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </nav>
     </div>
   );
 };
