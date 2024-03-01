@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { Button, Modal } from "react-bootstrap";
+
 
 const Profile = () => {
   const [imagenPerfil, setImagenPerfil] = useState("imagen-por-defecto");
   const [numeroPublicaciones, setNumeroPublicaciones] = useState(0);
   const [numeroSeguidos, setNumeroSeguidos] = useState(0);
-  const navigate = useNavigate();
 
   const handleCompartirPerfil = () => {
     // Función para compartir el perfil
@@ -18,12 +16,11 @@ const Profile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [imagenPerfil, setImagenPerfil] = useState("imagen-por-defecto");
   const [nombre, setNombre] = useState("");
   const [usuario, setUsuario] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [edad, setEdad] = useState(0);
-  const [telefono, setTelefono] = useState("");
+  const [edad, setEdad] = useState();
+  const [telefono, setTelefono] = useState();
 
   return (
     <div className="perfil">
