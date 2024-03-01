@@ -11,6 +11,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const LandingPage = () => {
@@ -156,21 +157,7 @@ const LandingPage = () => {
           </Card.Body>
         </Card>
       </nav>
-      <footer style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <Navbar bg="primary" data-bs-theme="dark" >
-          <Container>
-            <Nav className="me-auto">
-              <Nav.Link onClick={() => navigate("/landingpage")}><Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709311997/socialmedia/s0o2qrxqpkklwxbmtgaz.png"/></Nav.Link>
-              <Nav.Link onClick={() => navigate("/search")}><Image src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709311997/socialmedia/aljtpnt2wgm5oqq0dxru.png"/></Nav.Link>
-            </Nav>
-            <Navbar.Brand href="#new"><Image src="https://res.cloudinary.com/dtmapxnao/image/upload/v1709072583/workshop/Vector_4_dyqict.png"/></Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link onClick={() => navigate("/newcomer")}><Image style={{ width: 34, height: 34}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709315673/socialmedia/nktnddnkc2ierssctj78.png"/></Nav.Link>
-              <Nav.Link onClick={() => navigate("/profile")}><Image style={{ width: 31, height: 40}} src="https://res.cloudinary.com/dyepe4ih7/image/upload/v1709271888/socialmedia/fmvllbewbmltam4puxv5.jpg" roundedCircle/></Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </footer>
+      <Footer />
     </div>
   );
 };
