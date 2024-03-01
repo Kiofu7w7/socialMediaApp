@@ -41,7 +41,7 @@ const NewComer = () => {
           console.warn(err)
         }
       } else {
-        props.setFieldValue('url_photo', null) // set url_photo to null when the file input field is cleared
+        props.setFieldValue('url_photo', null) 
         setImageUrl(null)
       }
     }
@@ -100,7 +100,7 @@ const NewComer = () => {
     handleSubmit: values => {
       const objetos = {
         ...values,
-        Url_photo: imageUrl
+        Url_Photo: imageUrl
       }
       dispatch(actionAddUserAsyn(objetos));
       navigate('/')

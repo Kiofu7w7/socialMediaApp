@@ -42,8 +42,8 @@ const Chats = () => {
               {chat.Messages[chat.Messages.length - 1].UID !==
                 user?.currentUser?.uid && (
                   <img
-                  src={fun()}
-                    alt=""
+                  src="{fun()}"
+                    alt="asd"
                   />
                 )}
               
