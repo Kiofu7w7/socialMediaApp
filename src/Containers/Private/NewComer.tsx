@@ -76,6 +76,9 @@ const NewComer = () => {
         <button type="submit" disabled={isSubmitting}>
           Submit
         </button>
+        <button type="button">
+          Cancelar
+        </button>
       </Form>
     );
   };
