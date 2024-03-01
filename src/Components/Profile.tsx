@@ -19,8 +19,8 @@ const Profile = () => {
   const [nombre, setNombre] = useState("");
   const [usuario, setUsuario] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [edad, setEdad] = useState();
-  const [telefono, setTelefono] = useState();
+  const [edad, setEdad] = useState("");
+  const [telefono, setTelefono] = useState("");
 
   return (
     <div className="perfil">
